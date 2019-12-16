@@ -1,29 +1,34 @@
 
-declare var OrgChart: () => void;
-
-
-declare module "OrgChart" {
-
-    export class OrgChart {
-        /**
-         * Action  of org chart
-         */
-        static action: any;
-        load(nodes: any) {
-            throw new Error("Method not implemented.");
-        }
-        constructor(doc: any, params: any);
-        action: any;
+declare namespace OrgChart {
+    enum orientation {
+        top,
+        left,
+        right
+    }
+    enum action {
+        zoom,
+        xScroll,
+        yScroll,
+        none
     }
 }
 
+interface  options{
+    lazyLoading: boolean,
+    enableSearch: boolean,
+    orientation: OrgChart.orientation,
+    mouseScrool: OrgChart.action,
+    nodeBinding: Object
+}
 
+declare class OrgChart {
+    constructor(element: HTMLElement, options: options);
 
-// declare global {
-//     export interface OrgChart {
-//         action: any;
-//     }
-
-
-//}
-
+    /**
+     * Loads org chart
+     * @param nodes 
+     */
+   load(nodes: Array<Object>) : void;
+     // load(nodes: Array<JSON>): void;
+    fit(): void;
+}

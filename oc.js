@@ -1,6 +1,5 @@
 ///<reference path="OrgChart.d.ts" />
 
-
 var chart = new OrgChart(document.getElementById("tree"), {
     lazyLoading: true,
     enableSearch: false,
@@ -19,4 +18,4 @@ var chart = new OrgChart(document.getElementById("tree"), {
             ];
 
         
-        chart.load(nodes);
+    chart.load(nodes);
