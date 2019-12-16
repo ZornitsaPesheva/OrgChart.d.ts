@@ -9,6 +9,8 @@ var chart = new OrgChart(document.getElementById("tree"), {
         field_0: "name",
         field_1: "title"
     },
+    enableDragDrop: false,
+
 }) ;
 
     var nodes = [

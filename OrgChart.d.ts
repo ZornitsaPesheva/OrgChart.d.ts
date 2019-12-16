@@ -14,11 +14,14 @@ declare namespace OrgChart {
 }
 
 interface  options{
-    lazyLoading: boolean,
-    enableSearch: boolean,
-    orientation: OrgChart.orientation,
-    mouseScrool: OrgChart.action,
-    nodeBinding: Object
+    lazyLoading?: boolean,
+    enableSearch?: boolean,
+    orientation?: OrgChart.orientation,
+    mouseScrool?: OrgChart.action,
+    nodeBinding?: Object,
+    enableDragDrop?: boolean,
+    enableTouch?: boolean,
+
 }
 
 declare class OrgChart {
