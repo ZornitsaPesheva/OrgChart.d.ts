@@ -45,10 +45,31 @@ declare namespace OrgChart {
         boundary
     }
 
+    enum anim {
+        inPow,
+        outPow,
+        inOutPow,
+        inSin,
+        outSin,
+        inOutSin,
+        inExp,
+        outExp,
+        inOutExp,
+        inCirc,
+        outCirc,
+        inOutCirc,
+        rebound,
+        inBack,
+        outBack,
+        inOutBack
+    }
+
     const none: any;
     const normal: any;
     const CENTER: any;
     const ORIENTATION: any;
+
+    
 }
     
 interface  options{
@@ -100,7 +121,23 @@ interface  options{
     collapse?: Object,
     expand?: Object,
     align?: OrgChart,
-
+    UI?: OrgChart,
+    anim?: Object,
+    zoom?: Object,
+    roots?: Array<number>,
+    onUpdate?: string,
+    onRemove?: string,
+    onAdd?: string,
+    onRedraw?: string,
+    onImageUploaded?: string,
+    onUpdateTags?: string,
+    onClick?: string,
+    onDbClick?: string,
+    onExpCollClick?: string,
+    onExportStart?: string,
+    onExportEnd?: string,
+    onSearchClick?: string,
+    onready?: string
 
 }
 

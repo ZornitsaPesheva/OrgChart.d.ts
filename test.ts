@@ -53,7 +53,29 @@ var chart = new OrgChart(document.getElementById("tree"), {
     collapse: {},
     expand: {},
     align: OrgChart.CENTER,
-    
+    UI: null,
+    anim: {
+        func: OrgChart.anim.outPow,
+        duration: 200
+    },
+    zoom: {
+        speed: 120,
+        smooth: 12
+    },
+    roots: null,
+    onUpdate: "",
+    onRemove: "",
+    onAdd: "",
+    onRedraw: "",
+    onImageUploaded: "",
+    onUpdateTags: "",
+    onClick: "",
+    onDbClick: "",
+    onExpCollClick: "",
+    onExportStart: "",
+    onExportEnd: "",
+    onSearchClick: "",
+    onready: ""
 
 }) ;
 
