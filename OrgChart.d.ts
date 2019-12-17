@@ -39,8 +39,16 @@ declare namespace OrgChart {
         visible,
     }
 
+    enum match {
+        height,
+        width,
+        boundary
+    }
+
     const none: any;
     const normal: any;
+    const CENTER: any;
+    const ORIENTATION: any;
 }
     
 interface  options{
@@ -74,10 +82,24 @@ interface  options{
     mixedHierarchyNodesSeparation?: number,
     padding?: number,
     layout?: OrgChart,
-    
-
-
-
+    scaleInitial?: OrgChart.match | number,
+    scaleMin?: number,
+    scaleMax?: number,
+    orderBy?: string,
+    editUI?: Object,
+    searchUI?: Object,
+    xScrollUI?: Object,
+    yScrollUI?: Object,
+    nodeMenuUI?: Object,
+    nodeContextMenuUI?: Object,
+    toolbarUI?: Object,
+    notifierUI?: Object,
+    dragDropMenuUI?: Object,
+    menuUI?: Object,
+    exportUrl?: string,
+    collapse?: Object,
+    expand?: Object,
+    align?: OrgChart,
 
 
 }

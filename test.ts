@@ -35,11 +35,25 @@ var chart = new OrgChart(document.getElementById("tree"), {
     mixedHierarchyNodesSeparation: 15,
     padding: 30,
     layout: OrgChart.normal,
+    scaleInitial: 1,
+    scaleMin: 0.1,
+    scaleMax: 5,
+    orderBy: null,
+    editUI: null,
+    searchUI: null,
+    xScrollUI: null,
+    yScrollUI: null,
+    nodeMenuUI: null,
+    nodeContextMenuUI: null,
+    toolbarUI: null,
+    notifierUI: null,
+    dragDropMenuUI: null,
+    menuUI: null,
+    exportUrl: "https://balkangraph.com/export",
+    collapse: {},
+    expand: {},
+    align: OrgChart.CENTER,
     
-
-
-
-
 
 }) ;
 
