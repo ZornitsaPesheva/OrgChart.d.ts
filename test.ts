@@ -75,7 +75,7 @@ var chart = new OrgChart(document.getElementById("tree"), {
     onExportStart: "",
     onExportEnd: "",
     onSearchClick: "",
-    onready: ""
+    onReady: ""
 
 }) ;
 
