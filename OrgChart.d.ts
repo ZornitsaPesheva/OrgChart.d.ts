@@ -6,10 +6,34 @@ declare namespace OrgChart {
         right
     }
     enum action {
+        /**
+         * mouseScrool value
+         */
         zoom,
+        /**
+         * mouseScrool value
+         */
         xScroll,
+        /**
+         * mouseScrool value
+         */
         yScroll,
-        none
+        /**
+         * nodeMouseClick value
+         */
+        edit, 
+        /**
+         * nodeMouseClick value
+         */
+        details,
+        /**
+         * nodeMouseClick value
+         */
+        expandCollapse, 
+        /**
+         * nodeMouseClick and mouseScrool value
+         */
+        none,
     }
 }
 
