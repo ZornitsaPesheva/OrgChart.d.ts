@@ -2,6 +2,8 @@
 
 
 var chart = new OrgChart(document.getElementById("tree"), {
+    
+
     lazyLoading: true,
     enableSearch: false,
     orientation: OrgChart.orientation.top,
