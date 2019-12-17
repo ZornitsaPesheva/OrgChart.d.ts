@@ -10,6 +10,7 @@ var chart = new OrgChart(document.getElementById("tree"), {
         field_1: "title"
     },
     enableDragDrop: false,
+   
 
 }) ;
 

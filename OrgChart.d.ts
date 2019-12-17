@@ -21,6 +21,14 @@ interface  options{
     nodeBinding?: Object,
     enableDragDrop?: boolean,
     enableTouch?: boolean,
+    nodeMenu?: Object,
+    nodeContextMenu?: Object,
+    dragDropMenu?: Object,
+    menu?: Object,
+    toolbar?: boolean,
+    sticky?: boolean,
+    nodeMouseClick?: OrgChart.action,
+
 
 }
 

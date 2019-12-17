@@ -11,6 +11,14 @@ var chart = new OrgChart(document.getElementById("tree"), {
         field_1: "title"
     },
     enableDragDrop: false,
+    enableTouch: false,
+    nodeMenu: null,
+    nodeContextMenu: null,
+    dragDropMenu: null,
+    menu: null,
+    toolbar: false,
+    sticky: true,
+   // nodeMouseClick: OrgChart.action
 
 
 }) ;
