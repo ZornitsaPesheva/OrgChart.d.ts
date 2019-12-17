@@ -18,7 +18,27 @@ var chart = new OrgChart(document.getElementById("tree"), {
     menu: null,
     toolbar: false,
     sticky: true,
-   // nodeMouseClick: OrgChart.action
+    nodeMouseClick: OrgChart.action.none,
+    nodeMouseDdClick: OrgChart.action.zoom,
+    showXScroll: OrgChart.none,
+    showYScroll: OrgChart.scroll.visible,
+    template: "ana",
+    tags: {},
+    linkBinding: {},
+    searchFields: [],
+    nodes: [],
+    clinks: [],
+    slinks: [],
+    levelSeparation: 60,
+    siblingSeparation: 20,
+    subtreeSeparation: 40,
+    mixedHierarchyNodesSeparation: 15,
+    padding: 30,
+    layout: OrgChart.normal,
+    
+
+
+
 
 
 }) ;

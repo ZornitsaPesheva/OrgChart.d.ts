@@ -1,16 +1,11 @@
 ///<reference path="OrgChart.d.ts" />
 
 var chart = new OrgChart(document.getElementById("tree"), {
-    lazyLoading: true,
-    enableSearch: false,
-    orientation: OrgChart.orientation.top,
-    mouseScrool: OrgChart.action.none,
+
     nodeBinding: {
         field_0: "name",
         field_1: "title"
     },
-    enableDragDrop: false,
-   
 
 }) ;
 

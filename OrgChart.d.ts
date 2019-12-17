@@ -23,20 +23,26 @@ declare namespace OrgChart {
          */
         edit, 
         /**
-         * nodeMouseClick value
+         * nodeMouseClick and nodeMouseDbClick value
          */
         details,
         /**
-         * nodeMouseClick value
+         * nodeMouseClick and nodeMouseDbClick value
          */
         expandCollapse, 
         /**
-         * nodeMouseClick and mouseScrool value
+         * nodeMouseClick, nodeMouseDbClick and mouseScrool value
          */
         none,
     }
-}
+    enum scroll {
+        visible,
+    }
 
+    const none: any;
+    const normal: any;
+}
+    
 interface  options{
     lazyLoading?: boolean,
     enableSearch?: boolean,
@@ -52,6 +58,26 @@ interface  options{
     toolbar?: boolean,
     sticky?: boolean,
     nodeMouseClick?: OrgChart.action,
+    nodeMouseDdClick?: OrgChart.action,
+    showXScroll?: OrgChart.scroll,
+    showYScroll?: OrgChart.scroll,
+    template?: string,
+    tags?: Object,
+    linkBinding?: Object,
+    searchFields?: Array<string>,
+    nodes?: Array<Object>,
+    clinks?: Array<Object>,
+    slinks?: Array<Object>,
+    levelSeparation?: number,
+    siblingSeparation?: number,
+    subtreeSeparation?: number,
+    mixedHierarchyNodesSeparation?: number,
+    padding?: number,
+    layout?: OrgChart,
+    
+
+
+
 
 
 }
