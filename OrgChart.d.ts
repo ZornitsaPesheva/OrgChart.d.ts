@@ -72,7 +72,7 @@ declare namespace OrgChart {
     
 }
     
-interface  options{
+interface options {
     /**
      * Lazy loading is technique that defers loading of non-critical nodes at page load time. Instead, these non-critical nodes are loaded at the moment of need.
      * Default value: true
@@ -881,6 +881,8 @@ Code example:
 
 }
 
+
+
 declare class OrgChart {
     constructor(element: HTMLElement, options: options);
 
@@ -888,7 +890,136 @@ declare class OrgChart {
      * Loads org chart
      * @param nodes 
      */
-   load(nodes: Array<Object>) : void;
+    load(nodes: Array<Object>) : void;
      // load(nodes: Array<JSON>): void;
+
+    /**
+     * Updates the node JSON object.
+
+        Signature:
+``` 
+        chart.updateNode(nodeJSONdata);
+ ```   
+        Parameters:
+
+        - nodeJSONdata - node json data
+
+    Code example:
+```
+         chart.updateNode({ id: 4, pid: 2, name: "Updated Name", title: "Updated Title" });
+ ```   
+Will update the node with id 4 and will redraw the chart.
+     * @param nodeJSONdata 
+     */
+    updateNode(nodeJSONdata: Object) : void;
+
+    /**
+     * Updates the node JSON object.
+
+    Signature:
+``` 
+        chart.update(nodeJSONdata);
+   ``` 
+Parameters:
+
+- nodeJSONdata - node json data
+
+Code example:
+```
+         chart.update({ id: 4, pid: 2, name: "Updated Name", title: "Updated Title" });
+ ```   
+Will find the node with id 4 but it will not redraw the chart, you can use this method when you need to update two or more nodes, then call the draw function.
+
+
+     * @param nodeJSONdata 
+     */
+    update(nodeJSONdata: Object) : void;
+
+    
+
+    /**
+     *Removes specified node from nodes collection.
+
+    Signature:
+```
+         chart.removeNode(nodeId);
+ ```   
+Parameters:
+
+- nodeId - id of the node
+
+Code example:
+``` 
+        chart.removeNode(5);
+ ```   
+Will remove node with id 5 and will redraw the chart.
+     * @param nodeId 
+     */
+    removeNode(nodeId: string | number): void;    
+
+    /**
+     *Removes specified node from nodes collection.
+
+Signature:
+``` 
+        chart.remove(nodeId);
+ ```   
+Parameters:
+
+- nodeId - id of the node
+
+Code example:
+```
+        chart.remove(5);
+ ```   
+Will remove node with id 5 but it will not redraw the chart, you can use this method when you need to remove two ore more nodes, then call the draw function.
+
+
+     * @param nodeId 
+     */
+    remove(nodeId: string | number): void;   
+
+    /**
+     * Adds new node to the nodes collection.
+    
+     Signature:
+```
+         chart.addNode(nodeJSONdata);
+ ```   
+Parameters:
+ 
+- nodeJSONdata - node JSON data
+
+Code example:
+```
+        chart.addNode({ id: 4, pid: 2, name: "Name 1", title: "Title 1" });
+```    
+Will add new node and will redraw the chart.
+     * @param nodeJSONdata 
+     */
+    addNode(nodeJSONdata: Object) : void;
+
+    /**
+     * Adds new node to the nodes collection.
+
+Signature:
+```
+         chart.add(nodeJSONdata);
+ ```   
+Parameters:
+
+- nodeJSONdata - node JSON data
+
+Code example:
+```
+         chart.add({ id: 4, pid: 2, name: "Name 1", title: "Title 1" });
+ ```   
+Will add new node but it will not redraw the chart, you can use this method when you need add two or more nodes, then call the draw function.
+     * @param nodeJSONdata 
+     */
+    add(nodeJSONdata: Object) : void;
+
+    
+    
     fit(): void;
 }
