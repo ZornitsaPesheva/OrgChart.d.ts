@@ -194,6 +194,24 @@ Also you can define your own field in the templae, for more information go to Fi
 ```
      */
     nodeMenu?: Object,
+    /**
+     * Context menu. Also you can define your own node operation for more information see Menu
+
+Default value: null
+
+Code example:
+```
+     var chart = new OrgChart(document.getElementById("tree"), {
+	    nodeContextMenu:{
+                details: {text:"Details"},
+            	edit: {text:"Edit"},
+            	add: {text:"Add"},
+            	remove: {text:"Remove"}
+            },
+        ...
+    });
+ ```
+    */
     nodeContextMenu?: Object,
     /**
      * Use dragDropMenu with drag & drop and grouping feature.
@@ -246,6 +264,19 @@ Code example:
 ```    
      */
     toolbar?: Object,
+    /**
+     * Stop the org chart locking to the top of the screen once you move it.
+
+Default value: true
+
+Code example:
+``` 
+    var chart = new OrgChart(document.getElementById("tree"), {
+        sticky: false
+        ...
+    });
+ ```    
+     */
     sticky?: boolean,
     /**
      * nodeMouseClick can accept the following values:
@@ -268,6 +299,24 @@ Code example:
 ```    
      */
     nodeMouseClick?: OrgChart.action,
+    /**
+     * nodeMouseDbClick can accept the following values:
+
+- OrgChart.action.edit - will open the edit view for the clicked node on the right hand side
+- OrgChart.action.details - will open the details view for the clicked node on the right hand side, the details view is very similar to the edit view the only difference is that is read only.
+- OrgChart.action.expandCollapse - will expand or collapse the children nodes
+- OrgChart.action.none - do nothing on node double click event
+
+Default value: OrgChart.none
+
+Code example:
+``` 
+    var chart = new OrgChart(document.getElementById("tree"), {
+       nodeMouseDbClick: OrgChart.action.edit
+        ...
+    });
+   ```  
+     */
     nodeMouseDdClick?: OrgChart.action,
     /**
      * showXScroll can accept the following values:
@@ -484,7 +533,41 @@ Node JSON objects could have unlimited number of properties, id, pid and tags ar
 
      */
     nodes?: Array<Object>,
+    /**
+     *  Add C link.
+
+Default value: null
+
+Code example:
+```
+    var chart = new OrgChart(document.getElementById('tree'), {
+            clinks: [
+                {from: 4, to: 0, label: 'text'}, 
+                {from: 4, to: 5, template: 'blue', label: '4 reports to 5' },
+                {from: 2, to: 6, template: 'yellow', label: 'lorem ipsum' },
+            ]   
+            ...
+    });
+ ```  
+     */
     clinks?: Array<Object>,
+    /**
+     *  Add S link.
+
+Default value: null
+
+Code example:
+``` 
+     var chart = new OrgChart(document.getElementById('tree'), {
+            slinks: [
+                {from: 4, to: 0, label: 'text'}, 
+                {from: 4, to: 5, template: 'blue', label: 'reports to' },
+                {from: 2, to: 6, template: 'yellow', label: 'lorem ipsum' },
+            ]   
+            ...
+        });
+   ``` 
+     */
     slinks?: Array<Object>,
     /**
      * The gap between each level.
