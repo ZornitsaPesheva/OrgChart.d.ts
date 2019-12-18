@@ -227,7 +227,25 @@ Also you can define your own field in the templae, for more information go to Fi
 ```
     */
     menu?: Object,
-    toolbar?: boolean,
+    /**
+     * A toolbar is a set of icons or buttons.
+
+Default value: null
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            toolbar: {
+                layout: true,
+                zoom: true,
+                fit: true,
+                expandAll: false
+            },
+            ...
+        }); 
+```    
+     */
+    toolbar?: Object,
     sticky?: boolean,
     /**
      * nodeMouseClick can accept the following values:
@@ -430,6 +448,19 @@ Code example:
 ```
         */
     linkBinding?: Object,
+    /**
+     * Search by the fields defined in searchFields.
+
+Default value: Empty array
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            searchFields: ["name", "title", etc...],
+            ...
+        }); 
+ ```
+        */
     searchFields?: Array<string>,
     /**
      * Array of node data JSON objects. nodes option is the data source of the chart.
@@ -578,7 +609,42 @@ Code example:
  ```
         */
     scaleMin?: number,
+    /**
+     * Determines the naximum scale factor.
+
+Default value: 5
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            ...
+            scaleMax: 10
+        });  
+ ```
+        */
     scaleMax?: number,
+    /**
+     * The orderBy option is used to sort the nodes in ascending order by specified field. The default order is by nodes order in the nodes array.
+
+Default value: null
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            ...
+            orderBy: "orderId",
+            nodes: [
+                ...
+                { id: 10, pid: 1, orderId: 2 },
+                { id: 11, pid: 1, orderId: 1 }
+                ...
+            ]
+        }); 
+```
+In the example above node with id 11 will be before node with id 10. orderBy can be set to any property from the node JSON object, string or integer.
+
+
+     */
     orderBy?: string,
     editUI?: Object,
     searchUI?: Object,
@@ -590,12 +656,130 @@ Code example:
     notifierUI?: Object,
     dragDropMenuUI?: Object,
     menuUI?: Object,
+    /**
+     * The URL to the export server.
+
+Default value: https://balkangraph.com/export
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            exportUrl: "https://balkangraph.com/export",
+            ...
+        }); 
+ ```
+        */
     exportUrl?: string,
+    /**
+     * Collapse specified level of the chart and its children if allChildren is true.
+
+Code example:
+```
+        var chart = new OrgChart(document.getElementById("tree"), { 
+            collapse: {
+                level: 2,
+                allChildren: true
+            },
+            ...
+        });
+   ``` 
+     */
     collapse?: Object,
+    /**
+     * Expand specified node ids and its children if allChildren is true.
+
+The expand option works only if collapse is set.
+
+In the example above the second level of the chart will be collapsed but node with id 155 and its children will be expanded.
+
+Code example:
+```
+        var chart = new OrgChart(document.getElementById("tree"), { 
+            collapse: {
+                level: 2,
+                allChildren: true
+            },
+            expand:{
+                nodes: [155],
+                allChildren: true
+            }
+            ...
+        });
+   ``` 
+     */
     expand?: Object,
+    /**
+     *  The align option specifies the alignment of the nodes inside OrgChart JS.
+
+Default value: OrgChart.CENTER
+
+- OrgChart.CENTER - centered
+- OrgChart.ORIENTATION - according to the orientation option
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            align: OrgChart.ORIENTATION,
+            ...
+        }); 
+ ```   
+     */
     align?: OrgChart,
     UI?: OrgChart,
+    /**
+     *Can be used to control the transition of the nodes on expand/collapse operation.
+
+Default value: func: OrgChart.anim.outPow, duration: 200
+
+duration: defines how long time an animation should take to complete
+
+func: Easing functions specify the speed at which an animation progresses at different points within the animation. Can accept one of the following values:
+
+- OrgChart.anim.inPow
+- OrgChart.anim.outPow
+- OrgChart.anim.inOutPow
+- OrgChart.anim.inSin
+- OrgChart.anim.outSin
+- OrgChart.anim.inOutSin
+- OrgChart.anim.inExp
+- OrgChart.anim.outExp
+- OrgChart.anim.inOutExp
+- OrgChart.anim.inCirc
+- OrgChart.anim.outCirc
+- OrgChart.anim.inOutCirc
+- OrgChart.anim.rebound
+- OrgChart.anim.inBack
+- OrgChart.anim.outBack
+- OrgChart.anim.inOutBack
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            anim: {
+                func: OrgChart.anim.outBack,
+                duration: 500
+            },
+            ...
+        });  
+ ```
+        */
     anim?: Object,
+    /**
+     * Can be used to control the zooming sensitivity.
+
+Default value: speed: 120, smooth: 12
+
+Code example:
+```
+         var chart = new OrgChart(document.getElementById("tree"), {
+            zoom: {
+                speed: 130,
+                smooth: 10
+            },
+            ...
+        }); 
+ ```   
+     */
     zoom?: Object,
     roots?: Array<number>,
     onUpdate?: string,
