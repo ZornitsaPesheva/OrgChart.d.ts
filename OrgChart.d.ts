@@ -1018,8 +1018,118 @@ Will add new node but it will not redraw the chart, you can use this method when
      * @param nodeJSONdata 
      */
     add(nodeJSONdata: Object) : void;
+    addTag(name: string, tag: string);
 
+    /**
+     * Removes tag from the tags config collection.
+
+    Signature:
+```
+         chart.removeTag(name);
+```
+Parameters:
+
+- name - the name of the tag
+Code example:
+``` 
+        chart.removeTag("Directors");
+        ```
+     * @param name 
+     */
+    removeTag(name: string) : void;
     
-    
+    /**
+     * Adds tag to the node tags collection.
+
+Signature:
+``` 
+        chart.addNodeTag(nodeId, tagName);
+ ```   
+Parameters:
+
+- nodeId - the id of the node
+- tagName - the tag name
+
+Code example:
+```
+         chart.addNodeTag(5, "Directors");
+ ```
+         * @param nodeId 
+     * @param tagName 
+     */
+    addNodeTag(nodeId: string | number, tagName: string) : void;
+
+    /**
+     *Removes tag from the node tags collection.
+
+Signature:
+```
+         chart.removeNodeTag(nodeId, tagName);
+ ```   
+Parameters:
+
+- nodeId - the id of the node
+- tagName - the tag name that will be removed
+
+Code example:
+```
+         chart.removeNodeTag(5, "Directors");
+ ```
+         * @param nodeId 
+     * @param tagName 
+     */
+    removeNodeTag(nodeId: string | number, tagName: string) : void;
+
+    /**
+     * Groups two nodes into a group.
+
+Signature:
+``` 
+        chart.groupNode(sourceNodeId, targetNodeId, name);
+ ```   
+Parameters:
+
+- sourceNodeId - the id of the source node
+- targetNodeId - the id of the target node
+- name (optional)- the name of the group, has to be unique
+
+Code example:
+```
+         chart.groupNode(5, 6, 'myGroupName');
+ ```
+         * @param sourceNodeId 
+     * @param targetNodeId 
+     * @param name 
+     */
+    groupNode(sourceNodeId: string | number, targetNodeId: string | number, name: string ) : void;
+
+    /**
+     * Groups two nodes into a group.
+
+Signature:
+```
+         chart.group(sourceNodeId, targetNodeId, name);
+ ```   
+Parameters:
+
+- sourceNodeId - the id of the source node
+- targetNodeId - the id of the target node
+- name (optional)- the name of the group, has to be unique
+
+Code example:
+```
+        chart.group(5, 6, 'myGroupName');
+        chart.draw();
+```
+        * @param sourceNodeId 
+     * @param targetNodeId 
+     * @param name 
+     */
+    group(sourceNodeId: string | number, targetNodeId: string | number, name: string) : void;
+
+    link(fromNodeId: string | number, toNodeId: string | number);
+
+
+
     fit(): void;
 }
