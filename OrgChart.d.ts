@@ -1558,6 +1558,23 @@ Code example:
      */
     loadXML(xmlAsText: string) : void;
 
+    /**
+     * Gets nodes as xml.
+
+Signature:
+```
+ 
+        chart.getXML();
     
+Code example:
+
+ 
+        var xml = chart.getXML();
+    
+     * @returns xml 
+     */
+    getXML() : string;
+
+
 
 }
