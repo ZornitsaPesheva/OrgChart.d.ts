@@ -90,4 +90,4 @@ var chart = new OrgChart(document.getElementById("tree"), {
         
         chart.load(nodes);
         var node = { id: 1, name: "Amber McKenzie", title: "CIO" }
-          chart.zoom(2, [20,20]);
+       //  chart.d

@@ -1280,5 +1280,125 @@ Code example:
      */
     zoom(delta: boolean | number, center: Array<number>, anim? : boolean) : void;
 
+    /**
+     * Exports the chart to svg file.
+
+Signature:
+``` 
+        chart.exportSVG(filename, expandChildren, nodeId);
+   ``` 
+Parameters:
+
+- filename - (optional) file name
+- expandChildren - (optional) true/false, expands all children of root node if it set to true
+- nodeId - (optional) root node id
+
+Code example:
+``` 
+        chart.exportSVG("MyOrgChart.svg", true, 4);
+   ```
+        * @param filename 
+     * @param expandChildren 
+     * @param nodeId 
+     */
+    exportSVG(filename: string, expandChildren: boolean, nodeId: string | number ) : void;
+
+    /**
+     * Exports the chart to png file.
+
+Signature:
+```
+         chart.exportPNG(options);
+ ```   
+Parameters:
+
+- options - export options
+
+Code example:
+```
+        chart.exportPNG({
+            filename: "MyOrgChart.png", 
+            nodeId: 5, 
+            expandChildren: true, 
+            margin: [10,20,10,20],
+            header: 'My header',
+            footer: 'Page {current-page} of {total-pages}',
+        });
+ ```
+        * @param options 
+     */
+    exportPNG(options: Object) : void;
+
+    /**
+     * Exports the chart to pdf file.
+
+Signature:
+``` 
+        chart.exportPDF(options);
+  ```  
+Parameters:
+
+- options - export options
+
+Code example:
+``` 
+        chart.exportPDF({
+            landscape: true, //false
+            format: "A4", //fit, fit2Levels, A42Levels
+            filename: "MyOrgChart.pdf", 
+            nodeId: 5, 
+            expandChildren: true, 
+            margin: [10,20,10,20],
+            header: 'My header',
+            footer: 'Page {current-page} of {total-pages}',
+            scale: 'fit' //100
+        });
+   ``` 
+     * @param options 
+     */
+    exportPDF(options: Object) : void;
+
+    /**
+     * Exports the chart to CSV file.
+
+Signature:
+```
+         chart.exportCSV(options);
+ ```   
+Parameters:
+
+- options - export options
+
+Code example:
+``` 
+        chart.exportCSV({
+            filename: "MyOrgChart.svg", 
+            nodeId: 5, 
+            expandChildren: true
+        });
+   ```
+        * @param options 
+     */
+    exportCSV(options: Object) : void;
+
+    /**
+     * Draws the chart.
+
+Signature:
+``` 
+        chart.draw(action);
+   ``` 
+Parameters:
+
+- action - (optional) OrgChart.action.expandCollapse, OrgChart.action.update and OrgChart.action.centerNode
+
+Code example:
+```
+         chart.draw();
+ ```
+         * @param [action] 
+     */
+    draw(action? : OrgChart.action) : void;
+
     fit(): void;
 }
