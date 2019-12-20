@@ -16,8 +16,8 @@ var chart = new OrgChart(document.getElementById("tree"), {
             ];
 
         
-    chart.load(nodes);
-    var node = { id: 1, name: "Amber McKenzie", title: "CIO" }
-    var scale = chart.getScale;
-    console.log(scale);
-    
+    // chart.load(nodes);
+    // var node = { id: 1, name: "Amber McKenzie", title: "CIO" }
+    // var scale = chart.getScale;
+    // console.log(scale);
+

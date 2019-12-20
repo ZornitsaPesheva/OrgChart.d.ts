@@ -1381,6 +1381,25 @@ Code example:
      */
     exportCSV(options: Object) : void;
 
+        /**
+     * Exports the chart to XML file.
+
+Signature:
+``` 
+        chart.exportXML(filename);
+   ``` 
+Parameters:
+
+- filename - the name of the file
+
+Code example:
+``` 
+        chart.exportXML("MyOrgChart.svg");
+   ```
+        * @param filename 
+     */
+    exportXML(filename: string) : void;
+
     /**
      * Draws the chart.
 
@@ -1398,7 +1417,147 @@ Code example:
  ```
          * @param [action] 
      */
+
+    /**
+     * Import CSV file.
+
+Signature:
+``` 
+        chart.importCSV();
+   ``` 
+Code example:
+```
+         chart.importCSV();
+ ```
+         */
+    importCSV() : void;
+
+    /**
+     * Import XML file.
+
+Signature:
+``` 
+        chart.importXML();
+   ``` 
+Code example:
+``` 
+        chart.importXML();
+   ```
+        */
+    importXML() : void;
+
     draw(action? : OrgChart.action) : void;
 
+    /**
+     * Expand specified nodes.
+
+Signature:
+```
+         chart.expand(id, ids, callback);
+ ```   
+Parameters:
+
+- id - the id of the node that will not move
+- ids - node ids that will be expanded
+- callback - (optional) called after the animation completes
+
+Code example:
+``` 
+        chart.expand(5, [155]);
+   ```
+        * @param id 
+     * @param ids 
+     * @param [callback] 
+     */
+    expand(id: string | number, ids: Array<string | number>, callback?: Function) : void;
+
+    /**
+     * Collapse specified nodes.
+
+Signature:
+``` 
+        chart.collapse(id, ids, callback);
+   ```
+Parameters:
+
+- id - the id of the node that will not move
+- ids - node ids that will be collapsed
+- callback - (optional) called after the animation completes
+
+Code example:
+```
+         chart.collapse(5, [155]);
+ ```
+         * @param id 
+     * @param ids 
+     * @param [callback] 
+     */
+    collapse(id: string | number, ids: Array<string | number>, callback?: Function) : void;
+
+    /**
+     * Fits the content to the visible area.
+
+Signature:
+```
+         chart.fit();
+ ```   
+Code example:
+``` 
+        chart.fit();
+   ```
+        */
     fit(): void;
+
+    /**
+     * Finds node from the nodes collection.
+
+Signature:
+```
+        chart.find(value);
+   ``` 
+Parameters:
+
+- value - search by definded value
+
+Code example:
+```
+         chart.find("John");
+ ```
+         * @param value 
+     */
+    find(value: string | number) : void;
+
+    /**
+     * Load nodes file.
+
+Signature:
+``` 
+        chart.load(nodes json array);
+   ``` 
+Code example:
+```
+         chart.load([{id: 1}]);
+ ```
+         * @param nodes 
+     * @param jsonArray 
+     */
+    load(nodes: string | number | undefined, jsonArray: Array<Object>) : void;
+
+    /**
+     *Load nodes from xml.
+
+Signature:
+```
+         chart.loadXML(xmlAsText);
+ ```   
+Code example:
+``` 
+        chart.loadXML('<?xml version="1.0" encoding="utf-8" ?><nodes><node id="1" name="plamen"/><node id="2" pid="1" name="ivan"/></nodes>');
+   ```
+        * @param xmlAsText 
+     */
+    loadXML(xmlAsText: string) : void;
+
+    
+
 }
