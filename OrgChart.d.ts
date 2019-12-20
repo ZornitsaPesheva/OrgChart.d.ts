@@ -1,5 +1,7 @@
 
+
 declare namespace OrgChart {
+    
     enum orientation {
         top,
         left,
@@ -64,14 +66,18 @@ declare namespace OrgChart {
         inOutBack
     }
 
+  
     const none: any;
     const normal: any;
     const CENTER: any;
     const ORIENTATION: any;
+    
 
     
 }
-    
+
+
+
 interface options {
     /**
      * Lazy loading is technique that defers loading of non-critical nodes at page load time. Instead, these non-critical nodes are loaded at the moment of need.
@@ -1018,7 +1024,26 @@ Will add new node but it will not redraw the chart, you can use this method when
      * @param nodeJSONdata 
      */
     add(nodeJSONdata: Object) : void;
-    addTag(name: string, tag: string);
+    /**
+     * Adds tag to the tags config collection.
+
+Signature:
+``` 
+        chart.addTag(name, tag);
+  ```  
+Parameters:
+
+- name - the name of the tag
+- tag - the actual tag
+
+Code example:
+```
+         chart.addTag("Directors", { template: "derek"} );
+ ```
+         * @param name 
+     * @param tag 
+     */
+    addTag(name: string, tag: Object) : void;
 
     /**
      * Removes tag from the tags config collection.
@@ -1127,9 +1152,77 @@ Code example:
      */
     group(sourceNodeId: string | number, targetNodeId: string | number, name: string) : void;
 
-    link(fromNodeId: string | number, toNodeId: string | number);
+    /**
+     * Adds a link between two nodes.
 
+Signature:
+```
+         chart.link(fromNodeId, toNodeId);
+ ```
 
+Parameters:
+
+- fromNodeId - the id of the child node
+- toNodeId - the id of the parent node
+
+Code example:
+```
+         chart.link(5, 6);
+```
+It will create a link from node 5 to node 6.
+     * @param fromNodeId 
+     * @param toNodeId 
+     */
+    link(fromNodeId: string | number, toNodeId: string | number): void;
+
+    /**
+     * Adds a link between two nodes.
+
+Signature:
+```
+         chart.linkNode(fromNodeId, toNodeId);
+ ```   
+Parameters:
+
+- fromNodeId - the id of the child node
+- toNodeId - the id of the parent node
+
+Code example:
+```
+         chart.linkNode(5, 6);
+ ```   
+It will create a link from node 5 to node 6 and will redraw the chart.
+     * @param fromNodeId 
+     * @param toNodeId 
+     */
+    linkNode(fromNodeId: string | number, toNodeId: string | number) : void;
+
+    /**
+     * Center specified node on the screen.
+
+Signature:
+```
+         chart.center(nodeId, options);
+ ```   
+Parameters:
+
+- nodeId - the id of the node
+- options - { parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS, childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS, rippleId: rippleId, vertical: false, horizontal: false });
+
+Code example:
+```
+         chart.center(5,     {
+                parentState: OrgChart.COLLAPSE_PARENT_NEIGHBORS,
+                childrenState: OrgChart.COLLAPSE_SUB_CHILDRENS,
+                rippleId: 1,
+                vertical: true,
+                horizontal: false
+            }););
+ ```   
+     * @param nodeId 
+     * @param options 
+     */
+    center(nodeId: string | number, options: Object);
 
     fit(): void;
 }
