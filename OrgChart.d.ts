@@ -1222,7 +1222,63 @@ Code example:
      * @param nodeId 
      * @param options 
      */
-    center(nodeId: string | number, options: Object);
+    center(nodeId: string | number, options: Object) : void;
+
+    /**
+     * Animate specified node with ripple animation - highlight the node.
+
+Signature:
+```
+         chart.ripple(nodeId);
+```
+Parameters:
+
+- nodeId - the id of the node
+
+Code example:
+```
+        chart.ripple(5);
+```
+        * @param nodeId 
+     */
+    ripple(nodeId: string | number) : void;
+
+    /**
+     * Gets the current scale of the chart.
+
+Signature:
+``` 
+        chart.getScale();
+   ``` 
+Code example:
+``` 
+        var scale = chart.getScale();
+   ```
+        */
+    getScale() : number;
+
+    /**
+     * Zoom out or zoom in the chart.
+
+Signature:
+``` 
+        chart.zoom(delta, center, anim);
+   ``` 
+Parameters:
+
+- delta - True for zoom in, false for zoom out or scale number, if scale is > 1 it will zoom in and scale < 1 zoom out.
+- center - Array [x, y], where x is x percantege from the width and y is y percentage from the height. (optional)
+- anim - true, false (optional)
+
+Code example:
+```
+         chart.zoom(2, [20,20]);
+ ```
+         * @param delta 
+     * @param center 
+     * @param [anim] 
+     */
+    zoom(delta: boolean | number, center: Array<number>, anim? : boolean) : void;
 
     fit(): void;
 }
