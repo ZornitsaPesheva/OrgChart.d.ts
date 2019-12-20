@@ -66,7 +66,7 @@ declare namespace OrgChart {
         inOutBack
     }
 
-  
+
     const none: any;
     const normal: any;
     const CENTER: any;
@@ -1574,6 +1574,28 @@ Code example:
      * @returns xml 
      */
     getXML() : string;
+
+    /**
+     * Adds clink.
+
+Signature:
+```
+         chart.addClink(from, to, label, template);
+ ```   
+Code example:
+```
+         chart.addClink(5, 1, 'lorem ipsum', 'blue');
+ ```
+ Predefined templates:
+  - orange
+  - blue
+  - yellow
+         * @param fromId 
+     * @param toId 
+     * @param label 
+     * @param template 
+     */
+    addClink(fromId: string | number, toId: string | number, label: string, template: string) : void;
 
 
 
