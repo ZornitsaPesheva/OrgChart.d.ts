@@ -1580,7 +1580,7 @@ Code example:
 
 Signature:
 ```
-         chart.addClink(from, to, label, template);
+         chart.addClink(fromId, toId, label, template);
  ```   
 Code example:
 ```
@@ -1597,6 +1597,23 @@ Code example:
      */
     addClink(fromId: string | number, toId: string | number, label: string, template: string) : void;
 
+    /**
+     * Removes clink.
+
+Signature:
+``` 
+        chart.removeClink(fromId, toId);
+   ``` 
+Code example:
+``` 
+        chart.removeClink(5, 1);
+   ```
+        * @param fromId 
+     * @param toId 
+     */
+    removeClink(fromId: string | number, toId: string | Number): void;
+
+    expandCollapseToLevel(id: string | number, collapse, expand, callback);
 
 
 }
