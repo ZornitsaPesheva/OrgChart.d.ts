@@ -1646,7 +1646,51 @@ Code example:
      * @param expand 
      * @param callback 
      */
-    expandCollapseToLevel(id: string | number | undefined, collapse: Object, expand: Object, callback: Function) : void;
+    expandCollapseToLevel(id: string | number, collapse: Object, expand: Object, callback: Function) : void; // How works this one ?
 
 
+    /**
+     * Destroys the object.
+
+Signature:
+``` 
+        chart.destroy();
+   ```
+        */
+    destroy(): void;
+
+    /**
+     * Adds slink.
+
+Signature:
+``` 
+        chart.addSlink(fromId, toId, label, template);
+   ``` 
+Code example:
+``` 
+        chart.addSlink(5, 1, 'lorem ipsum', 'blue');
+   ```
+        * @param fromId 
+     * @param toId 
+     * @param label 
+     * @param template 
+     */
+    addSlink(fromId: string | number, toId: string | number, label: string, template: string) : void;
+
+
+    /**
+     * Removes slink.
+
+Signature:
+``` 
+        chart.removeSlink(fromId, toId);
+   ``` 
+Code example:
+``` 
+        chart.removeSlink(5, 1);
+   ```
+        * @param fromId 
+     * @param toId 
+     */
+    removeSlink(fromId: string | number, toId: string | number) : void;
 }
