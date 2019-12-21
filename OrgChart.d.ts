@@ -36,6 +36,8 @@ declare namespace OrgChart {
          * nodeMouseClick, nodeMouseDbClick and mouseScrool value
          */
         none,
+        update,
+        centerNode
     }
     enum scroll {
         visible,
@@ -893,13 +895,6 @@ declare class OrgChart {
     constructor(element: HTMLElement, options: options);
 
     /**
-     * Loads org chart
-     * @param nodes 
-     */
-    load(nodes: Array<Object>) : void;
-     // load(nodes: Array<JSON>): void;
-
-    /**
      * Updates the node JSON object.
 
         Signature:
@@ -1446,6 +1441,23 @@ Code example:
         */
     importXML() : void;
 
+    /**
+     * Draws the chart.
+
+Signature:
+``` 
+        chart.draw(action);
+   ``` 
+Parameters:
+
+- action - (optional) OrgChart.action.expandCollapse, OrgChart.action.update and OrgChart.action.centerNode
+
+Code example:
+``` 
+        chart.draw();
+   ```
+        * @param [action] 
+     */
     draw(action? : OrgChart.action) : void;
 
     /**
@@ -1528,20 +1540,19 @@ Code example:
     find(value: string | number) : void;
 
     /**
-     * Load nodes file.
+     * Load nodes.
 
 Signature:
 ``` 
-        chart.load(nodes json array);
+        chart.load(nodesJsonArray);
    ``` 
 Code example:
 ```
          chart.load([{id: 1}]);
  ```
-         * @param nodes 
      * @param jsonArray 
      */
-    load(nodes: string | number | undefined, jsonArray: Array<Object>) : void;
+    load(jsonArray: Array<Object>) : void;
 
     /**
      *Load nodes from xml.
@@ -1613,7 +1624,29 @@ Code example:
      */
     removeClink(fromId: string | number, toId: string | Number): void;
 
-    expandCollapseToLevel(id: string | number, collapse, expand, callback);
+    /**
+     * Expand/Collapse to level.
+
+Signature:
+``` 
+        chart.expandCollapseToLevel(id, collapse, expand, callback);
+   ``` 
+Code example:
+```
+         chart.expandCollapseToLevel({
+                level: 2
+            }, {
+                nodes: [155]
+            }, function(){
+                console.log('callback')
+            });
+ ```
+            * @param id 
+     * @param collapse 
+     * @param expand 
+     * @param callback 
+     */
+    expandCollapseToLevel(id: string | number | undefined, collapse: Object, expand: Object, callback: Function) : void;
 
 
 }

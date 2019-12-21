@@ -90,4 +90,12 @@ var chart = new OrgChart(document.getElementById("tree"), {
         
         chart.load(nodes);
         var node = { id: 1, name: "Amber McKenzie", title: "CIO" };
-chart.add
+        chart.draw(OrgChart.action.centerNode);
+
+chart.expandCollapseToLevel({
+            level: 2
+        }, {
+            nodes: [155]
+        }, function(){
+            console.log('callback')
+        });
